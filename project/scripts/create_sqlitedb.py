@@ -1,5 +1,5 @@
 import os
-import sqlite3
+import spatialite
 
 def create_db():
     
@@ -18,12 +18,12 @@ def create_db():
     db_file = f'data/{db_instance_name}.sqlite'
 
     if not os.path.exists(db_file):
-        conn = sqlite3.connect(db_file)
+        conn = spatialite.connect(db_file)
         print(f'Database created: {db_file}')
         return conn
     else:
         print("Database already exists")
-        return sqlite3.connect(db_file)
+        return spatialite.connect(db_file)
     
     """
     Set up a Sqlite database with the spatialite extension -> 

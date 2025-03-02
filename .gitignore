@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-database/*.ipynb
+project/data
 
 __pycache__/
 *.py[cod]

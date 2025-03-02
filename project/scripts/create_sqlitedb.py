@@ -25,7 +25,17 @@ def create_db():
         print("Database already exists")
         return sqlite3.connect(db_file)
     
+    """
+    Set up a Sqlite database with the spatialite extension -> 
+    [setup documentation]
+    """
+    
+    
+    
+    
+    
     conn.close()
+
     
 def main():
     create_db()

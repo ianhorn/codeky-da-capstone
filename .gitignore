@@ -5,6 +5,7 @@ project/data/S1A*
 __pycache__/
 *.py[cod]
 *$py.class
+*.sqlite
 
 # C extensions
 *.so

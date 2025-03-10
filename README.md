@@ -16,6 +16,8 @@
 3. References for background information
     
     - podaac [cheatsheets & guides](https://podaac.github.io/tutorials/quarto_text/cheatsheet.html#workflow-cheatsheet-terminology)
+    - ASF Python [API](https://hyp3-docs.asf.alaska.edu/tools/asf_tools_api/)
+    - [HydroSAR](https://github.com/HydroSAR/HydroSAR/tree/develop)
 
 
 ### Data Collection and Loading

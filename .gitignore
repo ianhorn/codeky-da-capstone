@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
-project/data
+project/data/*.zip
+project/data/S1A*
 
 __pycache__/
 *.py[cod]

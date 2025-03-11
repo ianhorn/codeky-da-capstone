@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 project/data/*.zip
 project/data/S1A*
+.DS_Store
 
 __pycache__/
 *.py[cod]

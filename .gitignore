@@ -2,6 +2,7 @@
 project/data/*.zip
 project/data/S1A*
 .DS_Store
+
 __pycache__/
 *.py[cod]
 *$py.class

@@ -3,18 +3,20 @@
 ### Project Overview
 
 1. Objective
-
+    - Use Sythetic Aperture Radar (SAR) date from the European Space Agency (ESA) Sentinel-1 satellite.
 
 2. Data sources
-
-    - NASA
-        - Alaska Satelite Facility
-        - Common Metadata Reposistory
+ - Imagery
+    - Acquisition
+        - European Space Agency
+    - Preprocessing
+        - Alaska Satellite Facility [ASF Vertex](https://search.asf.alaska.edu/#/?maxResults=250) Data Search Tool
+ - Water Data
+    - USGS [Stream Gages](https://opengisdata.ky.gov/maps/44a956e2d58a48cfb2e01b0c127acdec/explore?location=37.827060%2C-85.702407%2C7.15) for Kentucky
 
      
 
 3. References for background information
-    
     - podaac [cheatsheets & guides](https://podaac.github.io/tutorials/quarto_text/cheatsheet.html#workflow-cheatsheet-terminology)
     - ASF Python [API](https://hyp3-docs.asf.alaska.edu/tools/asf_tools_api/)
     - [HydroSAR](https://github.com/HydroSAR/HydroSAR/tree/develop)
@@ -33,8 +35,27 @@ cd codeky-da-capstone
 Create a virtuel environment
 ```bash
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate   # linux/mac
+venv/Scripts/Activate.ps1  # windows
 ```
+---
+### Data Acquisition
+
+My original plan was to use a STAC API to query for data by location and date.  However, obtaining raw satellite data and processing into a usable geo-referenced is very complex.  Fortunately, the [Alaska Satellite Facility](https://asf.alaska.edu/), a NASA Distributed Active Archive Center ([DAAC](https://asf.alaska.edu/asfsardaac/) provides search tool called [Vertex](https://search.asf.alaska.edu/#/?maxResults=250).  This tool allows a user to easily filter data easily.
+
+For this project, I picked to images.  The first images dates February 5<sup>th</sup> while the second image is from February 17<sup>th</sup>.  According to stream gage data, these dates show stream levels are low and high marks for this time during during the Kentucky 2025 Floods in February 2025.
+
+Using the Vertex interface, I selected the two scenes I wanted to submit to the queue for Radiometrically Terrain Corrected (RTC) processing.  [RTC](https://hyp3-docs.asf.alaska.edu/guides/rtc_product_guide/) corrects geometric and radiometric distortions inherent in SAR data because of side-looking instrumentation on the satellite.  By providing this service free of charge to subscribed users at 10,000 credits a month, analysts like myself can bypass intense computational process and use a GIS-ready product.  One could process between 166 to 2000 scences a month depending on final product resolution.
+
+Below is an example of the options I used to order two ESA Sentinel-1 scenes from NASA's Alaska Satellite Facility.
+
+<br>
+<p align="center">
+  <img src="media/vertex_queue.jpg" alt="Vertex On Demand" width="550"/>
+</p><br>
+
+By applying DEM matching, this aligns the scene with the digital elevation model, which provides a ground value for the data.  By applying a speckle filter, the On-Demand processing removes noise.  The end product is a ground range detected (GRD) product at decibel scale.  I chose the decibel scale (not power or amplitude) because it is most suited for detecting water.  
+
 
  - Load Data
  - Initial Check

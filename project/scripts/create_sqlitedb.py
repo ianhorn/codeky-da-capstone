@@ -29,11 +29,7 @@ def create_db():
     Set up a Sqlite database with the spatialite extension -> 
     [setup documentation]
     """
-    
-    
-    
-    
-    
+       
     conn.close()
 
     

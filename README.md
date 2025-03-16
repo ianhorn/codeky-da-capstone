@@ -13,6 +13,8 @@
         - Alaska Satellite Facility [ASF Vertex](https://search.asf.alaska.edu/#/?maxResults=250) Data Search Tool
  - Water Data
     - USGS [Stream Gages](https://opengisdata.ky.gov/maps/44a956e2d58a48cfb2e01b0c127acdec/explore?location=37.827060%2C-85.702407%2C7.15) for Kentucky
+ - Python
+    - [Whitebox Workflows for Python](https://www.whiteboxgeo.com/manual/wbw-user-manual/book/introduction.html)
 
      
 
@@ -62,13 +64,15 @@ By applying DEM matching, this aligns the scene with the digital elevation model
 
 ### Exploratory Data Analysis
 
-Once we've download the scenes, or granules, for project area.  We can create a map to make sure we really have the data we need.  A quick and dirty way to do is just to read in the delivered shapefile and load into the map.
+Once we've download the scenes, or granules, for the project area,  We can create a map to make sure we really have the data we need.  A quick and dirty way to do is just to read in the delivered shapefile and load into the map.
 
-For the images themselves, it would take some processing to display on a map.  Since Kentucky has a distinct shape and the images cover a large area, it should be obvious if it is Kentucky.  
-
-
+For the images themselves, it would take some processing to display on a map.  Since Kentucky has a distinct shape and the images cover a large area, it should be obvious if it is Kentucky.  We can just display a geotiff with an ipywidget image widget or use [titiler](https://developmentseed.org/titiler) to create a tiled image that can be loaded to a map.  
 
 ### Data Cleaning and Preparation
+
+Before we can start extracting flood data, we need to process the download Digital Elevation Model (*\*_dem.tif\**) downloaded with our granules create a Height Above Natural Drainage (*HAND*) Model.  To do this, we will use the Whitebox Workflows for Pyhton from [Whitebox Geospatial Inc](https://www.whiteboxgeo.com/).
+
+
 
 
 

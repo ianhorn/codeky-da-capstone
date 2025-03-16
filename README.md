@@ -56,21 +56,24 @@ Below is an example of the options I used to order two ESA Sentinel-1 scenes fro
 
 By applying DEM matching, this aligns the scene with the digital elevation model, which provides a ground value for the data.  By applying a speckle filter, the On-Demand processing removes noise.  The end product is a ground range detected (GRD) product at decibel scale.  I chose the decibel scale (not power or amplitude) because it is most suited for detecting water.  
 
-
  - Load Data
  - Initial Check
  - Selection Options
 
-### Data Cleaning and Preparation
-
- - 
- -
- -
-
 ### Exploratory Data Analysis
 
- - Descriptions
- - Visualizations
+Once we've download the scenes, or granules, for project area.  We can create a map to make sure we really have the data we need.  A quick and dirty way to do is just to read in the delivered shapefile and load into the map.
+
+For the images themselves, it would take some processing to display on a map.  Since Kentucky has a distinct shape and the images cover a large area, it should be obvious if it is Kentucky.  
+
+
+
+### Data Cleaning and Preparation
+
+
+
+
+
 
 ### Analysis and Insights
 
@@ -89,3 +92,12 @@ By applying DEM matching, this aligns the scene with the digital elevation model
 
 
 
+---
+Using Hydrosar to create a few products needed for extracting water data
+
+```cmd
+cd project
+git clone notebooks/notebook_archives/hydrosar.ipynb
+cd hydrosar
+```
+---

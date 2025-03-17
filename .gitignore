@@ -3,6 +3,7 @@ project/data/*.zip
 project/data/S1A*
 *.DS_Store*
 test.html
+temp_dir
 
 __pycache__/
 *.py[cod]

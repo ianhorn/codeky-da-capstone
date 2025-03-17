@@ -66,7 +66,7 @@ def dem_fill(file, temp_dir):
         display("DEM filling complete.")
             # write to file
         output_file = os.path.join(temp_dir, 'filled_dem.tif')
-        filled_dem_raster.wbe_write(filled_dem_raster, output_file)
+        filled_dem_raster = wbe.write_raster(filled_dem_raster, output_file)
     else:
         output_file = os.path.join(temp_dir, 'filled_dem.tif')
         filled_dem_raster = wbe.write_raster(filled_dem_raster, output_file)

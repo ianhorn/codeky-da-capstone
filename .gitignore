@@ -1,7 +1,7 @@
 # Byte-compiled / optimized / DLL files
-project/data/*.zip
-project/data/S1A*
-*.DS_Store*
+*.zip
+S1A*
+.DS_Store
 test.html
 temp_dir
 

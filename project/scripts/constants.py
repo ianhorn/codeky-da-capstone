@@ -82,19 +82,37 @@ def flow_direction(filled_dem, temp_dir):
     wbe.work_directory = temp_dir
     print(f'Working directory: {wbe.work_directory}')
 
-    try:
+
         # read the filled dem
-        input_filled_dem = wbe.read_raster(filled_dem)
+    input_filled_dem = wbe.read_raster(filled_dem)
+    
+    # run the d8_pointer functino to get flow directions
+    display("Start d8_pointer function . . . ")
+    flow_direction_dem = wbe.d8_pointer(input_filled_dem)
+    display("d8_pointer function call complete")
+
+    # write output to file
+    output_file = os.path.join(temp_dir, 'flow_dem.tif')
+    flow_direction_dem = wbe.write_raster(flow_direction_dem, output_file)
+    
+    return output_file 
+
+# create flow accumulation
+def flow_accumulation(flow_dem, temp_dir):
+
+    wbe.verbose = True
+    wbe.work_directory = temp_dir
+    print(f'Working directory: {wbe.work_directory}')
+
+    try:
+        input_flow_dem = wbe.read_raster(os.path.join(temp_dir, 'flow_dem.tif'))
+        flow_accumulation = wbe.d8_flow_accum(input_flow_dem)
         
-        # run the d8_pointer functino to get flow directions
-        display("Start d8_pointer function . . . ")
-        flow_direction_dem = wbe.d8_pointer(input_filled_dem)
-        display("d8_pointer function call complete")
-
-        # write output to file
-        output_file = os.path.join(temp_dir, 'flow_dem.tif')
-        flow_direction_dem = wbe.write_raster(flow_direction_dem, output_file)
-
-        return output_file
+        # write to file
+        output_file = os.path.join(temp_dir, 'flow_accum.tif')
+        flow_accumulation = wbe.write_raster(flow_accumulation, output_file)
+    
     except Exception as e:
-        print(e)  
+        print(e)    
+
+    return output_file

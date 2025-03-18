@@ -72,3 +72,29 @@ def dem_fill(file, temp_dir):
         filled_dem_raster = wbe.write_raster(filled_dem_raster, output_file)
    
     return output_file
+
+def flow_direction(filled_dem, temp_dir):
+
+    """
+    The d8_pointer function calculates flow direction from the filled
+    """
+    wbe.verbose = True
+    wbe.work_directory = temp_dir
+    print(f'Working directory: {wbe.work_directory}')
+
+    try:
+        # read the filled dem
+        input_filled_dem = wbe.read_raster(filled_dem)
+        
+        # run the d8_pointer functino to get flow directions
+        display("Start d8_pointer function . . . ")
+        flow_direction_dem = wbe.d8_pointer(input_filled_dem)
+        display("d8_pointer function call complete")
+
+        # write output to file
+        output_file = os.path.join(temp_dir, 'flow_dem.tif')
+        flow_direction_dem = wbe.write_raster(flow_direction_dem, output_file)
+
+        return output_file
+    except Exception as e:
+        print(e)  

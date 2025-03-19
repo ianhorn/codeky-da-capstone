@@ -44,7 +44,7 @@ def create_scenes_df():
 wbe = WbEnvironment()
 
 # fill remove depressions in the dem
-def dem_fill(file, temp_dir):
+def dem_fill(file, temp_dir):  
     
     """
     the `wbe.fill_depressions` function is used to fill any voids and anomolies in the dem
@@ -67,6 +67,7 @@ def dem_fill(file, temp_dir):
             # write to file
         output_file = os.path.join(temp_dir, 'filled_dem.tif')
         filled_dem_raster = wbe.write_raster(filled_dem_raster, output_file)
+
     else:
         output_file = os.path.join(temp_dir, 'filled_dem.tif')
         filled_dem_raster = wbe.write_raster(filled_dem_raster, output_file)
@@ -100,9 +101,9 @@ def flow_direction(filled_dem, temp_dir):
 # create flow accumulation
 def flow_accumulation(flow_dem, temp_dir):
 
-    wbe.verbose = True
-    wbe.work_directory = temp_dir
-    print(f'Working directory: {wbe.work_directory}')
+    # wbe.verbose = True
+    # wbe.work_directory = temp_dir
+    # print(f'Working directory: {wbe.work_directory}')
 
     try:
         input_flow_dem = wbe.read_raster(os.path.join(temp_dir, 'flow_dem.tif'))

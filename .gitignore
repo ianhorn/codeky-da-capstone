@@ -4,6 +4,7 @@ S1A*
 .DS_Store
 test.html
 temp_dir
+temp_pysheds
 
 __pycache__/
 *.py[cod]

@@ -51,8 +51,8 @@ def dem_fill(file, temp_dir):
     """
 
     wbe.verbose = True
-    wbe.work_directory = temp_dir
-    print(f'Working directory: {wbe.work_directory}')
+    wbe.working_directory = temp_dir
+    print(f'Working directory: {wbe.working_directory}')
 
     # set up so that you don't have to do the fill depressions process if already in memory
     # I don't think this will actually work
@@ -74,14 +74,14 @@ def dem_fill(file, temp_dir):
    
     return output_file
 
-def flow_direction(filled_dem, temp_dir):
+def flow_direction(filled_dem, r):
 
     """
     The d8_pointer function calculates flow direction from the filled
     """
     wbe.verbose = True
-    wbe.work_directory = temp_dir
-    print(f'Working directory: {wbe.work_directory}')
+    wbe.working_directory = r
+    print(f'Working directory: {wbe.working_directory}')
 
 
         # read the filled dem
@@ -93,17 +93,17 @@ def flow_direction(filled_dem, temp_dir):
     display("d8_pointer function call complete")
 
     # write output to file
-    output_file = os.path.join(temp_dir, 'flow_dem.tif')
+    output_file = os.path.join('flow_dem.tif')
     flow_direction_dem = wbe.write_raster(flow_direction_dem, output_file)
     
     return output_file 
 
 # create flow accumulation
-def flow_accumulation(flow_dem, temp_dir):
+def flow_accumulation(flow_dem, r):
 
-    # wbe.verbose = True
-    # wbe.work_directory = temp_dir
-    # print(f'Working directory: {wbe.work_directory}')
+    wbe.verbose = True
+    wbe.working_directory = temp_dir
+    print(f'Working directory: {wbe.working_directory}')
 
     try:
         input_flow_dem = wbe.read_raster(os.path.join(temp_dir, 'flow_dem.tif'))

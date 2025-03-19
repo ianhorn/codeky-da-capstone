@@ -23,8 +23,8 @@ else:
 # def fill_depressions(self, dem: Raster, fix_flats: bool = True, flat_increment: float = float('nan'), max_depth: float = float('inf')) -> Raster: ...
 
 
-wbe.work_directory = temp_dir
-print(wbe.work_directory)
+wbe.working_directory = temp_dir
+print(wbe.working_directory)
 
 # copy the dem to the directory
 dem_copy = f'{temp_dir}/dem_copy.tif'

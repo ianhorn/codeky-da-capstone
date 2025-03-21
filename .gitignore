@@ -5,6 +5,7 @@ S1A*
 test.html
 temp_dir
 temp_pysheds
+.idea
 
 __pycache__/
 *.py[cod]

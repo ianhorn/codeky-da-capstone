@@ -44,15 +44,13 @@ def create_scenes_df():
 wbe = WbEnvironment()
 
 # fill remove depressions in the dem
-def dem_fill(file, temp_dir):  
+def dem_fill(file, r):  
     
     """
     the `wbe.fill_depressions` function is used to fill any voids and anomolies in the dem
     """
-
+    temp_dir = r
     wbe.verbose = True
-    wbe.working_directory = temp_dir
-    print(f'Working directory: {wbe.working_directory}')
 
     # set up so that you don't have to do the fill depressions process if already in memory
     # I don't think this will actually work
@@ -60,19 +58,19 @@ def dem_fill(file, temp_dir):
         input_dem_raster
     except NameError:
         input_dem_raster = wbe.read_raster(file)
-        print(input_dem_raster.file_name)
+        # print(input_dem_raster.file_name)
         display("Starting DEM filling process...")
         filled_dem_raster = wbe.fill_depressions(input_dem_raster)  # leave default parameter, recommended by documetation
         display("DEM filling complete.")
             # write to file
-        output_file = os.path.join(temp_dir, 'filled_dem.tif')
+        output_file = os.path.join(temp_dir,'filled_dem.tif')
         filled_dem_raster = wbe.write_raster(filled_dem_raster, output_file)
 
     else:
-        output_file = os.path.join(temp_dir, 'filled_dem.tif')
+        output_file = os.path.join('filled_dem.tif')
         filled_dem_raster = wbe.write_raster(filled_dem_raster, output_file)
    
-    return output_file
+    return
 
 def flow_direction(filled_dem, r):
 
@@ -85,7 +83,7 @@ def flow_direction(filled_dem, r):
 
 
         # read the filled dem
-    input_filled_dem = wbe.read_raster(filled_dem)
+    input_filled_dem = wbe.read_raster('filled_dem.tif')
     
     # run the d8_pointer functino to get flow directions
     display("Start d8_pointer function . . . ")
@@ -96,24 +94,24 @@ def flow_direction(filled_dem, r):
     output_file = os.path.join('flow_dem.tif')
     flow_direction_dem = wbe.write_raster(flow_direction_dem, output_file)
     
-    return output_file 
+    return
 
 # create flow accumulation
 def flow_accumulation(flow_dem, r):
 
     wbe.verbose = True
-    wbe.working_directory = temp_dir
+    wbe.working_directory = r
     print(f'Working directory: {wbe.working_directory}')
 
     try:
-        input_flow_dem = wbe.read_raster(os.path.join(temp_dir, 'flow_dem.tif'))
-        flow_accumulation = wbe.d8_flow_accum(input_flow_dem)
+        flow_dem = wbe.read_raster(os.path.join('flow_dem.tif'))
+        flow_accumulation = wbe.d8_flow_accum(flow_dem)
         
         # write to file
-        output_file = os.path.join(temp_dir, 'flow_accum.tif')
+        output_file = os.path.join('flow_accum.tif')
         flow_accumulation = wbe.write_raster(flow_accumulation, output_file)
     
     except Exception as e:
         print(e)    
 
-    return output_file
+    return

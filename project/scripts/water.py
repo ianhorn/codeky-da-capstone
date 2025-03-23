@@ -13,6 +13,6 @@ end = '2025-02-28T00:00'
 service = 'iv'
 
 url = f'https://waterservices.usgs.gov/nwis/iv/?format=json&stateCd=ky&startDT={start}&endDT={end}&siteStatus=active&siteType=ST'
-
-df = nwis._read_json(url)
-print(df.head)
+print(url)
+# df = nwis._read_json(url)
+# print(df.head)

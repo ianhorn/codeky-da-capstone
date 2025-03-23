@@ -29,13 +29,5 @@ def create_scenes_df():
     scenes_df['vv'] = scenes_df['scene_folder'] + '_vv.tif'
     scenes_df['vh'] = scenes_df['scene_folder'] + '_vh.tif'
     scenes_df['shapefile'] = scenes_df['scene_folder'] + '_shape.shp'
-
-    # print an example
-    # print(scenes_df)
-
-    # base_scene = scenes_df.at[0,'scene_folder']
-    # flood_scene = scenes_df.at[1,'scene_folder']
-
-    # print(f'Base Scene Directory:  {base_scene}\nFlood Scene Directory: {flood_scene}')
-    
+  
     return scenes_df

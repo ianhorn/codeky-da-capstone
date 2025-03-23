@@ -6,6 +6,7 @@ test.html
 temp_dir
 temp_pysheds
 .idea
+dem_processing
 
 __pycache__/
 *.py[cod]

@@ -44,9 +44,9 @@ venv/Scripts/Activate.ps1  # windows
 ---
 ### Data Acquisition
 
-My original plan was to use a STAC API to query for data by location and date.  However, obtaining raw satellite data and processing into a usable geo-referenced is very complex.  Fortunately, the [Alaska Satellite Facility](https://asf.alaska.edu/), a NASA Distributed Active Archive Center ([DAAC](https://asf.alaska.edu/asfsardaac/) provides search tool called [Vertex](https://search.asf.alaska.edu/#/?maxResults=250).  This tool allows a user to easily filter data easily.
+My original plan was to use a STAC API to query for data by location and date.  However, obtaining raw satellite data and processing into a usable geo-referenced image is very complex.  Fortunately, the [Alaska Satellite Facility](https://asf.alaska.edu/), a NASA Distributed Active Archive Center ([DAAC](https://asf.alaska.edu/asfsardaac/) provides a search tool called [Vertex](https://search.asf.alaska.edu/#/?maxResults=250).  This tool allows a user to easily filter data.
 
-For this project, I picked to images.  The first images dates February 5<sup>th</sup> while the second image is from February 17<sup>th</sup>.  According to stream gage data, these dates show stream levels are low and high marks for this time during during the Kentucky 2025 Floods in February 2025.
+For this project, I picked two images.  The first images dates January 24<sup>th</sup> while the second image is from February 17<sup>th</sup>.  According to stream gage data, these dates show stream levels are low and high marks for this time during during the Kentucky 2025 Floods in February 2025.
 
 Using the Vertex interface, I selected the two scenes I wanted to submit to the queue for Radiometrically Terrain Corrected (RTC) processing.  [RTC](https://hyp3-docs.asf.alaska.edu/guides/rtc_product_guide/) corrects geometric and radiometric distortions inherent in SAR data because of side-looking instrumentation on the satellite.  By providing this service free of charge to subscribed users at 10,000 credits a month, analysts like myself can bypass intense computational process and use a GIS-ready product.  One could process between 166 to 2000 scences a month depending on final product resolution.
 
@@ -95,14 +95,5 @@ Before we can start extracting flood data, we need to process the download Digit
  - Advanced EDA (elevation layer?)
  - Dashboards
 
-
-
 ---
-Using Hydrosar to create a few products needed for extracting water data
 
-```cmd
-cd project
-git clone notebooks/notebook_archives/hydrosar.ipynb
-cd hydrosar
-```
----

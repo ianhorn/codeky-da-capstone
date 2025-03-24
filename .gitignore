@@ -9,6 +9,11 @@ temp_pysheds
 dem_processing
 __MACOSX
 project/scripts/*
+asf_creds.py
+flood_processing
+crisis_scene_processing
+base_scene_processing
+
 
 __pycache__/
 *.py[cod]

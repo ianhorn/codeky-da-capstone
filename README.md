@@ -3,7 +3,7 @@
 ### Project Overview
 
 1. Objective
-    - Use Sythetic Aperture Radar (SAR) date from the European Space Agency (ESA) Sentinel-1 satellite.
+    - Use Sythetic Aperture Radar (SAR) data from the European Space Agency (ESA) Sentinel-1 satellite.
 
 2. Data sources
  - Imagery
@@ -13,11 +13,11 @@
         - Alaska Satellite Facility [ASF Vertex](https://search.asf.alaska.edu/#/?maxResults=250) Data Search Tool
  - Water Data
     - USGS [Stream Gages](https://opengisdata.ky.gov/maps/44a956e2d58a48cfb2e01b0c127acdec/explore?location=37.827060%2C-85.702407%2C7.15) for Kentucky
+    - USGS [Water Services](https://waterservices.usgs.gov/) - Instantaneous Values
  - Python
     - [asf-tools](https://github.com/ASFHyP3/asf-tools/)
 
-
-     
+  
 
 3. References for background information
     - podaac [cheatsheets & guides](https://podaac.github.io/tutorials/quarto_text/cheatsheet.html#workflow-cheatsheet-terminology)

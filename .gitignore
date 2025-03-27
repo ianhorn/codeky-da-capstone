@@ -14,6 +14,7 @@ flood_processing
 crisis_scene_processing
 base_scene_processing
 snap
+png_viz
 
 
 __pycache__/

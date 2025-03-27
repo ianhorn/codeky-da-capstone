@@ -10,26 +10,26 @@ from folium import Map, TileLayer
 def create_scenes_df():
     
     """
-       SAR Data:
-        These files were obtained using the ASF Vertex Data Search.
-        They were submitted for Radio Terrain Correctiom.
-        radiometry: gamma0
-        scale: decibel
-        pixel spacing: 10m
+        SAR Data:
+         These files were obtained using the ASF Vertex Data Search.
+         They were submitted for Radio Terrain Correctiom.
+         radiometry: gamma0
+         scale: power
+         pixel spacing: 10m
        
         Digital Elevation Model processing:
          The dem processing folder contains the DEM used for radio-
-         terrain correction and derivative produces used to create 
-         a HAND and water mask.
+         terrain correction and derivative product such as the Height
+         Above Natural Drainge (HAND) Model.
     """
 
     box_data = {
-        'zipfile': ['S1A_IW_20250124T233956_DVP_RTC10_G_gdufem_8285.zip',
-                    'S1A_IW_20250217T233955_DVP_RTC10_G_gdufem_E701.zip',
+        'zipfile': ['S1A_IW_20250124T233956_DVP_RTC10_G_gdufem_8285',
+                    'S1A_IW_20250217T233955_DVP_RTC10_G_gpufem_0598',
                     'dem_processing.zip'],
-        'link': ['https://ky.box.com/shared/static/oiowba0ne7y0wohbavhv0usjzyob3fwm.zip', 
-                'https://ky.box.com/shared/static/81wf3fabzhzsux29nhe4ojdaq0qtwp89.zip',
-                'https://ky.box.com/shared/static/rz15mqljj1m0tcejhu647haey6sfrfkf.zip']
+        'link': ['https://ky.box.com/shared/static/n17o6x1lxjzxxws31puxisimdkr4nlnh.zip', 
+                'https://ky.box.com/shared/static/9y1a4z4rmmvdpfpi8mwfcjxmcf5tks83.zip',
+                'https://ky.box.com/shared/static/n17o6x1lxjzxxws31puxisimdkr4nlnh.zip']
             }
     scenes_df = pd.DataFrame(data=box_data)
 

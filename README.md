@@ -44,6 +44,8 @@ cd codeky-da-capstone
 python3 -m venv venv
 source venv/bin/activate   # linux/mac
 venv/Scripts/Activate.ps1  # windows
+
+pip install -r requirements.txt
 ```
 
 - Download the [data.zip](https://ky.box.com/shared/static/p7qrt8yfp0eekqybr5317yn6q9oba6l0.zip') file.  Unnzip into the repo's root folder.  *You will want to do this and **NOT** download from the notebook to save time.*  Once unzipped, the pathway should look like this:
